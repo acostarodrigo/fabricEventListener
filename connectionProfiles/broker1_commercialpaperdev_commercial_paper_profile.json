@@ -1,0 +1,114 @@
+{
+    "name": "commercialpaperdev",
+    "description": "Network on IBP v2",
+    "version": "1.0.0",
+    "client": {
+        "organization": "Broker1MSP",
+        "credentialStore": {
+            "path": "./cryptoStore/fabric-client-kv-broker1"
+        },
+        "cryptoStore": {
+            "path": "/tmp/fabric-client-kv-broker1"
+        }
+    },
+    "channels": {
+        "commercialpaperdev": {
+            "orderers": [
+                "n4cab15-orderershieldsecuritizecom1.mycluster-466445.us-south.containers.appdomain.cloud:7050"
+            ],
+            "peers": {
+                "n4cab15-peer0broker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                },
+                "n4cab15-peer0broker2securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                },
+                "n4cab15-peer0issuersecuritizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051": {
+                    "endorsingPeer": true,
+                    "chaincodeQuery": true,
+                    "ledgerQuery": true,
+                    "eventSource": true
+                }
+            }
+        }
+    },
+    "organizations": {
+        "Broker1MSP": {
+            "mspid": "Broker1MSP",
+            "peers": [
+                "n4cab15-peer0broker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051"
+            ],
+            "certificateAuthorities": [
+                "n4cab15-cabroker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7054"
+            ]
+        },
+        "Broker2MSP": {
+            "mspid": "Broker2MSP",
+            "peers": [
+                "n4cab15-peer0broker2securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051"
+            ]
+        },
+        "IssuerMSP": {
+            "mspid": "IssuerMSP",
+            "peers": [
+                "n4cab15-peer0issuersecuritizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051"
+            ]
+        }
+    },
+    "orderers": {
+        "n4cab15-orderershieldsecuritizecom1.mycluster-466445.us-south.containers.appdomain.cloud:7050": {
+            "url": "grpcs://n4cab15-orderershieldsecuritizecom1.mycluster-466445.us-south.containers.appdomain.cloud:7050",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICPzCCAeagAwIBAgIUI1u+7uwaC3KRsFR5aeb2bddFqcEwCgYIKoZIzj0EAwIw\ndDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMSUwIwYDVQQDExxjYS5zaGll\nbGQuc2VjdXJpdGl6ZS5jb20tdGxzMB4XDTE5MDYwNTE3MDMwMFoXDTM0MDYwMTE3\nMDMwMFowdDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQw\nEgYDVQQKEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMSUwIwYDVQQDExxj\nYS5zaGllbGQuc2VjdXJpdGl6ZS5jb20tdGxzMFkwEwYHKoZIzj0CAQYIKoZIzj0D\nAQcDQgAEoPNrvZSA5j3bkYg26aevt4J0EixB1rAlpBOs75rvfuIjZ9LVvY1mIMl1\n1TTf/2Shhi6AJAJko1sIYn3l2PPTt6NWMFQwDgYDVR0PAQH/BAQDAgEGMBIGA1Ud\nEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYEFG0zhbpIS30iwe3+fIo9qEE5mwgIMA8G\nA1UdEQQIMAaHBAqxd4owCgYIKoZIzj0EAwIDRwAwRAIgRnFHdpOkCdtZkD4q7ny9\nEQL/abs3m1kJYBksC5Gz4eECIAIVkJQyeiDNAsDqNAM5DPC1aJ5SxzBC/PlgUkRi\n2rI4\n-----END CERTIFICATE-----\n"
+            }
+        }
+    },
+    "peers": {
+        "n4cab15-peer0broker2securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051": {
+            "url": "grpcs://n4cab15-peer0broker2securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICQTCCAeigAwIBAgIUTUcm34tm4Jnq7yEfTYaAqlXufNAwCgYIKoZIzj0EAwIw\ndTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMSYwJAYDVQQDEx1jYS5icm9r\nZXIyLnNlY3VyaXRpemUuY29tLXRsczAeFw0xOTA2MDUxNzA3MDBaFw0zNDA2MDEx\nNzA3MDBaMHUxCzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEU\nMBIGA1UEChMLSHlwZXJsZWRnZXIxDzANBgNVBAsTBkZhYnJpYzEmMCQGA1UEAxMd\nY2EuYnJva2VyMi5zZWN1cml0aXplLmNvbS10bHMwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAARfekAUAebfTnDjaJkC4rY5uVmlvIpfmgZdXVvqJV/ubDivYsZ51Loa\nzX9/Qwg2qiFw8tl1oqQFnLEy3JK89uiio1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUSJM7QI4+qqHF9QG5yrv5OiySecYw\nDwYDVR0RBAgwBocECrF3ijAKBggqhkjOPQQDAgNHADBEAiBuQhqghLgR7ZJyxv3E\nixXSgl//yj7IsTz6zoe4/z0+0gIgJGHRZ/F6RlHGSPwYnjm/SW4p8ncb1ild35Ev\nNf+axWY=\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "n4cab15-peer0broker2securitizecom.mycluster-466445.us-south.containers.appdomain.cloud"
+            }
+        },
+        "n4cab15-peer0broker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051": {
+            "url": "grpcs://n4cab15-peer0broker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICQjCCAeigAwIBAgIUFKFk09q2ikWTNRsqvD39eMvg0fgwCgYIKoZIzj0EAwIw\ndTELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMSYwJAYDVQQDEx1jYS5icm9r\nZXIxLnNlY3VyaXRpemUuY29tLXRsczAeFw0xOTA2MDUxNzA3MDBaFw0zNDA2MDEx\nNzA3MDBaMHUxCzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0aCBDYXJvbGluYTEU\nMBIGA1UEChMLSHlwZXJsZWRnZXIxDzANBgNVBAsTBkZhYnJpYzEmMCQGA1UEAxMd\nY2EuYnJva2VyMS5zZWN1cml0aXplLmNvbS10bHMwWTATBgcqhkjOPQIBBggqhkjO\nPQMBBwNCAASbbLlJ2S/tgrbx7qgxxrswK6ITuYOdKA9QRhvPLtOdoLkwPbuZxbZS\nwBYyfmnbU+bhPeqrDpFgCBSM35a/ahWYo1YwVDAOBgNVHQ8BAf8EBAMCAQYwEgYD\nVR0TAQH/BAgwBgEB/wIBATAdBgNVHQ4EFgQUDVLA697xHBO6SujTINitPlLwvNQw\nDwYDVR0RBAgwBocECrF3iTAKBggqhkjOPQQDAgNIADBFAiEA0ltea6aEhWelsEH7\ntYFA3irGoAhlWxGBX/11GD0fK4oCIAGhibO6IgPSJZdYOpODi0WYRrG4XsiGF8Nc\nflCVeC5S\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "n4cab15-peer0broker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud"
+            }
+        },
+        "n4cab15-peer0issuersecuritizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051": {
+            "url": "grpcs://n4cab15-peer0issuersecuritizecom.mycluster-466445.us-south.containers.appdomain.cloud:7051",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\nMIICPzCCAeagAwIBAgIUaNREwRCukCZSHLScgzhkXmiqC+owCgYIKoZIzj0EAwIw\ndDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQwEgYDVQQK\nEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMSUwIwYDVQQDExxjYS5pc3N1\nZXIuc2VjdXJpdGl6ZS5jb20tdGxzMB4XDTE5MDYwNTE3MDQwMFoXDTM0MDYwMTE3\nMDQwMFowdDELMAkGA1UEBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRQw\nEgYDVQQKEwtIeXBlcmxlZGdlcjEPMA0GA1UECxMGRmFicmljMSUwIwYDVQQDExxj\nYS5pc3N1ZXIuc2VjdXJpdGl6ZS5jb20tdGxzMFkwEwYHKoZIzj0CAQYIKoZIzj0D\nAQcDQgAETVVqg1ni2sm1gNiBHFm+y2zmxtNz/XCaL7OX2GIJgmISmbG2NMsQ5/5v\nr3Jz45D6dYlxoF7csfQsH/fgPBMOEaNWMFQwDgYDVR0PAQH/BAQDAgEGMBIGA1Ud\nEwEB/wQIMAYBAf8CAQEwHQYDVR0OBBYEFDRI3XIpngSaHEzjPpO6GlCLELu5MA8G\nA1UdEQQIMAaHBAqxd4owCgYIKoZIzj0EAwIDRwAwRAIgKbko52IVeoilmMGhNDfK\nxP58Mgaw+cDHjgsiYwimjcUCIBgQUuQ2cNwUAaOJgzm9xKMOrZ2F9lfWAWKAkeY1\ngkAC\n-----END CERTIFICATE-----\n"
+            },
+            "grpcOptions": {
+                "ssl-target-name-override": "n4cab15-peer0issuersecuritizecom.mycluster-466445.us-south.containers.appdomain.cloud"
+            }
+        }
+    },
+    "certificateAuthorities": {
+        "n4cab15-cabroker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7054": {
+            "url": "https://n4cab15-cabroker1securitizecom.mycluster-466445.us-south.containers.appdomain.cloud:7054",
+            "caName": "ca",
+            "tlsCACerts": {
+                "pem": "-----BEGIN CERTIFICATE-----\r\nMIIDVDCCAr2gAwIBAgIJatwhd+/+g0exMA0GCSqGSIb3DQEBBQUAMIG5MVwwWgYD\r\nVQQDE1NuNGNhYjE1LWNhYnJva2VyMXNlY3VyaXRpemVjb20ubXljbHVzdGVyLTQ2\r\nNjQ0NS51cy1zb3V0aC5jb250YWluZXJzLmFwcGRvbWFpbi5jbG91ZDELMAkGA1UE\r\nBhMCVVMxFzAVBgNVBAgTDk5vcnRoIENhcm9saW5hMRAwDgYDVQQHEwdSYWxlaWdo\r\nMQwwCgYDVQQKEwNJQk0xEzARBgNVBAsTCkJsb2NrY2hhaW4wHhcNMTkwNjA1MTcw\r\nNTQxWhcNMjAwNjA0MTcwNTQxWjCBuTFcMFoGA1UEAxNTbjRjYWIxNS1jYWJyb2tl\r\ncjFzZWN1cml0aXplY29tLm15Y2x1c3Rlci00NjY0NDUudXMtc291dGguY29udGFp\r\nbmVycy5hcHBkb21haW4uY2xvdWQxCzAJBgNVBAYTAlVTMRcwFQYDVQQIEw5Ob3J0\r\naCBDYXJvbGluYTEQMA4GA1UEBxMHUmFsZWlnaDEMMAoGA1UEChMDSUJNMRMwEQYD\r\nVQQLEwpCbG9ja2NoYWluMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCDLACx\r\nhlmlUqkhejdIvBvixtq2z9vM8AoxhTmK8+P+BZLu7ofEk8EyhZ6rSdkNIPkVFOt0\r\nzXEw/s0QbnDZOefdqSeh1M+kZF16PIHMvPBOsd3yL4+K3edO7jSnJ5jPJ8bXN0Yo\r\nXxQe/tVKYlAE99VV6xcDuwNX7s/gEijiOAYutQIDAQABo2IwYDBeBgNVHREEVzBV\r\nglNuNGNhYjE1LWNhYnJva2VyMXNlY3VyaXRpemVjb20ubXljbHVzdGVyLTQ2NjQ0\r\nNS51cy1zb3V0aC5jb250YWluZXJzLmFwcGRvbWFpbi5jbG91ZDANBgkqhkiG9w0B\r\nAQUFAAOBgQAYsOgeXzc69orCw8uM9huz5ScXtl01DI8qCt9fwEDCCO63+MASJifD\r\nb2rfnTwSCgsZ+t0p6hgW+MBzSt5nn3OCANicAT7SaxdtsVO/VQRO2aGYIHTYFB2l\r\nXwWyML4Vx2SlmFvRzegCVx8J2YBE5k8k45p2PkB+/Tl6TUUzAxoFng==\r\n-----END CERTIFICATE-----\r\n"
+            },
+            "registrar": {
+                "enrollId": "admin",
+                "secret": "adminpw"
+            }
+        }
+    }
+}
